@@ -30,7 +30,9 @@ static CGFloat const ImageHeight = 250.0f;  // 图片高度可自己设定
     _table.delegate = self;
     _table.dataSource = self;
     [_table registerClass:[UITableViewCell class] forCellReuseIdentifier:MyCellIdentifier];
+    // 设置偏移量，这样能够让偏移出的部分显示图片。
     [_table setContentInset:UIEdgeInsetsMake(ImageHeight, 0, 0, 0)];
+    _table.showsVerticalScrollIndicator = NO;
     [self.view addSubview:_table];
     
     _imageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, -ImageHeight, ScreenWidth, ImageHeight)];
